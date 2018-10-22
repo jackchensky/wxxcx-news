@@ -1,21 +1,87 @@
 /**index.wxss**/
-.userinfo {
+.menu-wrapper {
+  position: fixed;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #2e9ae3;
+  padding: 9rpx 0rpx;
+  top: 0rpx;
+  right: 0rpx;
+  height: 46rpx;
+  z-index: 999;
+
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.menu-type {
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  color: #fff;
+  background-color: #2e9ae3;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  width: 756rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.menu-type-checked {
+  font-weight: 900;
+  border-bottom: 2px solid #fff;
 }
 
-.usermotto {
-  margin-top: 200px;
+.swiper-wrapper {
+  margin-top: 60rpx;
+  height: 400rpx;
+}
+
+.swiper-item {
+  position: relative;
+}
+
+.swiper-tag {
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+  padding: 4rpx 24rpx;
+  font-size: 24rpx;
+  color: #fff;
+  background-color: rgba(244, 67, 54, 0.7);
+  border-bottom-left-radius: 20rpx;
+}
+
+.slide-image {
+  width: 750rpx;
+  height: 400rpx;
+  z-index: -1;
+}
+
+.swiper-title {
+  position: absolute;
+  bottom: 40rpx;
+  background-color: rgba(117, 117, 117, 0.7);
+  color: #fff;
+  padding: 16rpx 16rpx 0rpx 16rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  width: 750rpx;
+  word-wrap: break-word;
+}
+
+.swiper-subtitle {
+  position: absolute;
+  background-color: rgba(117, 117, 117, 0.7);
+  color: rgb(224, 224, 224);
+  height: 40rpx;
+  width: 750rpx;
+  font-size: 20rpx;
+  bottom: 0rpx;
+  left: 0rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.swiper-source {
+  padding-left: 16rpx;
+}
+
+.swiper-date {
+  padding-right: 16rpx;
 }
