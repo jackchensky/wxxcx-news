@@ -19,3 +19,12 @@
     </swiper-item>
   </view>
 </swiper>
+<view class='news-list'>
+  <view class='news-item' wx:for='{{news}}'>
+    <view class='news-text'>
+      <view class='news-title'>{{item.title}}</view>
+      <view class='news-subtitle'>{{!!item.source?item.source:'未知来源'}} {{item.date}}</view>
+    </view>
+    <image class='news-image' src='{{newsFirstImage}}'></image>
+  </view>
+</view>

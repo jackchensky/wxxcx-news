@@ -85,3 +85,38 @@
 .swiper-date {
   padding-right: 16rpx;
 }
+
+.news-list {
+  padding: 24rpx;
+}
+
+.news-item {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 20rpx;
+  padding-top: 20rpx;
+}
+
+.news-text {
+  width: 500rpx;
+  margin-right: 30rpx;
+}
+
+.news-title {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  color: #212121;
+}
+
+.news-subtitle {
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #757575;
+}
+
+.news-image {
+  width: 172rpx;
+  height: 120rpx;
+}
+
