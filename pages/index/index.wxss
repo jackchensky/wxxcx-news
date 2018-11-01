@@ -22,10 +22,10 @@
   width: 756rpx;
 }
 
-.menu-type-checked {
-  font-weight: 900;
-  border-bottom: 2px solid #fff;
-}
+  .menu-type .active {
+    font-weight: 900;
+    border-bottom: 2px solid #fff;
+  }
 
 .swiper-wrapper {
   margin-top: 60rpx;

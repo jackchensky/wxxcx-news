@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class='menu-wrapper'>
   <view class='menu-type'>
-    <view wx:key='unique' wx:for='{{menuTypeList}}' bindtap='onTapMenuType' data-menu-type='{{item.en}}'>
+    <view class="{{menuType==item.en?'active':''}}" wx:key='unique' wx:for='{{menuTypeList}}' bindtap='onTapMenuType' data-menu-type='{{item.en}}'>
       {{item.cn}}
     </view>
   </view>
