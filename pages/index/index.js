@@ -95,12 +95,20 @@ Page({
 
 //下拉刷新
   onPullDownRefresh() {
-    console.log('refresh executed!')
-
+    // console.log('refresh executed!')
     this.getNews(() => {
-      wx.shopPullDownRefresh()
+      wx.stopPullDownRefresh()
     })
   },
+
+  onTapNews(event){
+    // console.log(event)
+    let newsID = event.currentTarget.dataset.newsid
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + newsID
+    })
+  }
+  
 
   // onLoad() {
   //   wx.request({

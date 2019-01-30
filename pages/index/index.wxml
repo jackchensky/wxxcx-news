@@ -8,7 +8,7 @@
 </view>
 <swiper class='swiper-wrapper' indicator-dots='ture' indicator-color='#b3e5fc' indicator-active-color='#0288d1' circular='true' autoplay='true' interval='5000' duration='500'>
   <view wx:for='{{swiperImgUrlList}}'>
-    <swiper-item class='swiper-item'>
+    <swiper-item class='swiper-item' bindtap='onTapNews'>
       <view class='swiper-tag'>测试</view>
       <image class='slide-image' src='{{item}}'></image>
       <view class='swiper-title'>热烈庆祝香港回归祖国十五周年庆典活动热烈庆祝香港回归祖国十五周年庆典活动</view>
@@ -20,8 +20,7 @@
   </view>
 </swiper>
 <view class='news-list'>
-  <view class='news-item' wx:key='unique' wx:for='{{newsList}}' data-newsid='{{item.id}}'>
-
+  <view class='news-item' bindtap='onTapNews' wx:key='unique' wx:for='{{newsList}}' data-newsid='{{item.id}}'>
       <view class='news-text'>
         <view class='news-title'>{{item.title}}</view>
         <view class='news-subtitle'>{{item.source}} {{item.date}}</view>
