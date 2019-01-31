@@ -20,9 +20,9 @@ Page({
     menuTypeList: [
       {'en': 'gn', 'cn': '国内'}
     ],
-    swiperImgUrlList:['/images/news01.jpg'],
+    swiperImgUrlList:[],
 
-  },  
+  },
 
 
   // 首次加载
@@ -52,12 +52,28 @@ Page({
       data: {
         type: this.data.menuType
       },
+      // success: res => {
+      //   let result = res.data.result
+      //   this.setNewsList(result)
+      // },
+      // fail: res => {
+      //   console.log(res)
+      // },
       success: res => {
-        let result = res.data.result
-        this.setNewsList(result)
-      },
-      fail: res => {
-        console.log(res)
+        let data = res.data.result;
+        // 修正date数据格式
+        data.forEach(d => {
+          let date = new Date(d.date);
+          d.date = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+        })
+        // 随机排序，模拟获取到的新闻列表发生变化，测试pulldownrefresh
+        data.sort(this.randomsort)
+        this.setData({
+          // 提取获得的数据的前三项作为swiper的数据，不满3项取全部
+          swiperImgUrlList: data.length >= 3 ? data.slice(0, 3) : data,
+          // 提取获得的数据的前三项以后的数据作为newsList的数据
+          newsList: data.slice(3, data.length)
+        })
       },
       complete: () => {
         callback && callback()
@@ -65,24 +81,33 @@ Page({
     })
   },
 
-//更新新闻列表
-  setNewsList(result) {
-    let newsList =[]
-    // console.log(result)
-    for (let i = 0; i < result.length; i+=1) {
-      newsList.push({
-        id: result[i].id,
-        title: result[i].title.slice(0, 30), //处理过长的标题
-        source: result[i].source || '未知来源', //值不存在的情况
-        firstImage: result[i].firstImage || "/images/news-img.png", //值不存在的情况
-        date: result[i].date.slice(0, 10),
-      })
-    }
-    this.setData({
-      newsList: newsList
-    })
-
+  /**
+ * 排序辅助函数，用于打乱新闻列表，模拟获取新新闻列表
+ */
+  randomsort: (a, b) => {
+    //用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
+    return Math.random() > .5 ? -1 : 1;
   },
+
+// //更新新闻列表
+//   setNewsList(result) {
+//     let newsList =[]
+//     // console.log(result)
+//     for (let i = 0; i < result.length; i+=1) {
+//       newsList.push({
+//         id: result[i].id,
+//         title: result[i].title.slice(0, 30), //处理过长的标题
+//         source: result[i].source || '未知来源', //值不存在的情况
+//         firstImage: result[i].firstImage || "/images/news-img.png", //值不存在的情况
+//         date: result[i].date.slice(0, 10),
+//       })
+//     }
+//     this.setData({
+//       swiperImgUrlList: result.length >= 3 ? result.slice(0, 3) : result,
+//       newsList: newsList
+//     })
+
+//   },
   
 //变更当前栏目
 

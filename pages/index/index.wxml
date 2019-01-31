@@ -8,13 +8,13 @@
 </view>
 <swiper class='swiper-wrapper' indicator-dots='ture' indicator-color='#b3e5fc' indicator-active-color='#0288d1' circular='true' autoplay='true' interval='5000' duration='500'>
   <view wx:for='{{swiperImgUrlList}}'>
-    <swiper-item class='swiper-item' bindtap='onTapNews'>
-      <view class='swiper-tag'>测试</view>
-      <image class='slide-image' src='{{item}}'></image>
-      <view class='swiper-title'>热烈庆祝香港回归祖国十五周年庆典活动热烈庆祝香港回归祖国十五周年庆典活动</view>
+    <swiper-item class='swiper-item' data-newsid='{{item.id}}' bindtap='onTapNews'>
+      <view class='swiper-tag'>头条</view>
+      <image class='slide-image' src='{{item.firstImage}}'></image>
+      <view class='swiper-title'>{{item.title}}</view>
       <view class='swiper-subtitle'>
-        <view class='swiper-source'>中新网</view>
-        <view class='swiper-date'>2018-10-22</view>
+        <view class='swiper-source'>{{item.source}}</view>
+        <view class='swiper-date'>{{item.date}}</view>
       </view>
     </swiper-item>
   </view>

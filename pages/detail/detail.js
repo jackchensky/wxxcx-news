@@ -1,6 +1,3 @@
-// 使用moment库转换时间
-// var moment = require('../../libs/moment-cn.min.js');
-// moment.locale('zh-cn');
 
 Page({
   data: {
