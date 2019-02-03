@@ -10,9 +10,7 @@ Page({
     this.setData({
       newsID: opt.id
     })
-
     this.getArticle()
-
   },
 
   // 获取新闻详情
@@ -26,7 +24,6 @@ Page({
 
         // 设定文本概要信息
         let articleInfo = res.data.result;
-        // articleInfo.time = moment(articleInfo.date).format('YYYY-MM-DD hh:mm');
           let time = new Date(articleInfo.date);
         articleInfo.time = `${time.getFullYear()}-${time.getMonth() + 1}-${time.getDate()}`;
         this.setData({
@@ -76,16 +73,6 @@ Page({
       } // end if
     } // end for
     return nodes;
-  },
-
-
-  // 下拉刷新
-  onPullDownRefresh() {
-    console.log("refresh executed!")
-
-    this.getArticle(() => {
-      wx.stopPullDownRefresh()
-    })
   },
 
 })

@@ -23,7 +23,7 @@
   <view class='news-item' bindtap='onTapNews' wx:key='unique' wx:for='{{newsList}}' data-newsid='{{item.id}}'>
       <view class='news-text'>
         <view class='news-title'>{{!!item.title?item.title: '快读·资讯|未知标题'}}</view>
-        <view class='news-subtitle'>{{!!item.source?item.source: '未知来源'}} {{item.date}}</view>
+        <view class='news-subtitle'>{{!!item.source?item.source: '未知来源'}} {{!!item.date?item.date: '未知发布时间'}}</view>
       </view>
       <image class='news-image' src="{{!!item.firstImage?item.firstImage: '/images/default-news01.jpg'}}"></image>
   </view>
