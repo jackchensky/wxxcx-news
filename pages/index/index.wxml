@@ -7,7 +7,7 @@
   </view>
 </view>
 <swiper class='swiper-wrapper' indicator-dots='ture' indicator-color='#b3e5fc' indicator-active-color='#0288d1' circular='true' autoplay='true' interval='5000' duration='500'>
-  <view wx:for='{{swiperImgUrlList}}'>
+  <view wx:for='{{swiperImgUrlList}}' wx:key='item.id'>
     <swiper-item class='swiper-item' data-newsid='{{item.id}}' bindtap='onTapNews'>
       <view class='swiper-tag'>头条</view>
       <image class='slide-image' src='{{item.firstImage}}'></image>
@@ -22,10 +22,9 @@
 <view class='news-list'>
   <view class='news-item' bindtap='onTapNews' wx:key='unique' wx:for='{{newsList}}' data-newsid='{{item.id}}'>
       <view class='news-text'>
-        <view class='news-title'>{{item.title}}</view>
+        <view class='news-title'>{{!!item.title?item.title: '快读·资讯|未知标题'}}</view>
         <view class='news-subtitle'>{{!!item.source?item.source: '未知来源'}} {{item.date}}</view>
       </view>
-      <image class='news-image' src='{{item.firstImage}}'></image>
-
+      <image class='news-image' src="{{!!item.firstImage?item.firstImage: '/images/default-news01.jpg'}}"></image>
   </view>
 </view>
